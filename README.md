@@ -1,14 +1,20 @@
 ## percona-toolkit
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-percona-toolkit.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-percona-toolkit) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/Oefenweb/percona-toolkit)
+[![CI](https://github.com/Oefenweb/ansible-percona-toolkit/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-percona-toolkit/actions?query=workflow%3ACI)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/Oefenweb/percona_toolkit)
 
 Manage [percona-toolkit](https://www.percona.com/software/mysql-tools/percona-toolkit) in Debian-like systems.
 
 #### Requirements
 
-None
+* `software-properties-common` (will be installed)
+* `dirmngr` (will be installed)
 
 #### Variables
+
+##### Percona version
+
+* `percona_toolkit_repo_version`: [required, default: `5.6`]: Manages the repository depending on the Percona version (5.5, 5.6, 5.7 and 8.0)
 
 ##### General
 
