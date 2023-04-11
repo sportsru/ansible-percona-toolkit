@@ -1,7 +1,7 @@
-# tasks file
+# tasks file for percona-toolkit
 ---
 - name: configure | generate scripts
-  ansible.builtin.template:
+  template:
     src: "{{ item.lstrip('/') }}.j2"
     dest: "{{ item }}"
     owner: root

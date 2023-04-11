@@ -1,36 +1,30 @@
-# tasks file
+# tasks file for percona-toolkit
 ---
-- ansible.builtin.include: version-support.yml
-  tags:
-    - configuration
-    - percona-toolkit
-    - percona-toolkit-repo-version-support
-
-- ansible.builtin.include: repository.yml
+- include: repository.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-repository
 
-- ansible.builtin.include: install.yml
+- include: install.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-install
 
-- ansible.builtin.include: configure.yml
+- include: configure.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-configure
 
-- ansible.builtin.include: scripts.yml
+- include: scripts.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-scripts
 
-- ansible.builtin.include: jobs.yml
+- include: jobs.yml
   tags:
     - configuration
     - percona-toolkit

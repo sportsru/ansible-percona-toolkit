@@ -1,26 +1,25 @@
-# meta file
+# meta file for percona-toolkit
 ---
 galaxy_info:
-  author: oefenweb
-  role_name: percona_toolkit
+  author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Manage percona-toolkit in Debian-like systems
   license: MIT
-  min_ansible_version: 2.10.0
+  min_ansible_version: 2.5.0.0
   platforms:
     - name: Ubuntu
       versions:
+        - precise
+        - trusty
         - xenial
-        - bionic
-        - focal
     - name: Debian
       versions:
+        - wheezy
         - jessie
         - stretch
-        - buster
   galaxy_tags:
     - system
     - monitoring
     - database
-    - sql
+    - database:sql
 dependencies: []

@@ -1,7 +1,7 @@
-# tasks file
+# tasks file for percona-toolkit
 ---
 - name: configure (cron) jobs
-  ansible.builtin.cron:
+  cron:
     name: "{{ item.name }}"
     job: "{{ item.job }}"
     state: "{{ item.state | default('present') }}"

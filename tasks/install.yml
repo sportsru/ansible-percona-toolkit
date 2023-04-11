@@ -1,8 +1,9 @@
-# tasks file
+# tasks file for percona-toolkit
 ---
 - name: install | dependencies
-  ansible.builtin.apt:
-    name: "{{ percona_toolkit_dependencies }}"
-    state: "{{ apt_install_state | default('latest') }}"
+  apt:
+    name: "{{ item }}"
+    state: "{{ apt_install_state | default('present') }}"
+  with_items: "{{ percona_toolkit_dependencies }}"
   tags:
     - percona-toolkit-install-dependencies

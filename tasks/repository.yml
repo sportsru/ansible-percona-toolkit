@@ -1,17 +1,20 @@
-# tasks file
+# tasks file for percona-toolkit
 ---
-- name: repository | install | dependencies (pre)
-  ansible.builtin.apt:
-    name: "{{ percona_toolkit_dependencies_pre }}"
+- name: repository | install | dependencies
+  apt:
+    name: "{{ item }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  with_items:
+    - dirmngr
+  when: ansible_distribution == 'Debian' and ansible_distribution_version is version('9.0', '>=')
   tags:
     - percona-toolkit-repository-install
     - percona-toolkit-repository-install-dependencies
 
 - name: repository | add public key
-  ansible.builtin.apt_key:
+  apt_key:
     id: 9334A25F8507EFA5
     keyserver: keyserver.ubuntu.com
     state: present
@@ -19,7 +22,7 @@
     - percona-toolkit-repository-public-key
 
 - name: repository | add
-  ansible.builtin.apt_repository:
+  apt_repository:
     repo: "{{ item.type }} {{ item.url }} {{ item.component }}"
     state: present
     update_cache: true
@@ -28,7 +31,7 @@
     - percona-toolkit-repository-add
 
 - name: repository | apt-pin packages
-  ansible.builtin.copy:
+  copy:
     src: etc/apt/preferences.d/00percona.pref
     dest: /etc/apt/preferences.d/00percona.pref
     owner: root
