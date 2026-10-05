@@ -13,6 +13,7 @@ None
 ##### Percona version
 
 * `percona_toolkit_repo_version`: [required, default: `5.6`]: Manages the repository depending on the Percona version (5.5, 5.6, 5.7 and 8.0)
+* `percona_toolkit_repository_url` / `percona_toolkit_repository_names` / `percona_toolkit_repository_keyring` / `percona_toolkit_repository_key_id`: [default: see `defaults/main.yml`]: Repositories are added as `deb [signed-by=<keyring>] <url>/<name>/apt <codename> main` (the same lines percona-release and the percona-server role write); other lines of the same repositories are removed first
 
 ##### General
 

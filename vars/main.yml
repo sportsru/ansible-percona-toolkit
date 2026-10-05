@@ -1,12 +1,10 @@
 # vars file for percona-toolkit
 ---
-percona_toolkit_repositories:
-  - type: deb
-    url: "http://repo.percona.com/tools/apt {{ ansible_lsb.codename }}"
-    component: main
-  - type: deb-src
-    url: "http://repo.percona.com/tools/apt {{ ansible_lsb.codename }}"
-    component: main
+percona_toolkit_repository_types:
+  - deb
+  - deb-src
+
+_percona_toolkit_repository_names_re: "{{ percona_toolkit_repository_names | map('regex_escape') | join('|') }}"
 
 percona_toolkit_dependencies:
   - "percona-toolkit"

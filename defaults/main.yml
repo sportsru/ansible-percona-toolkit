@@ -1,5 +1,13 @@
 # defaults file for percona-toolkit
 ---
+# Repositories (http://repo.percona.com/<name>/apt), signed-by the keyring (the same as percona-release
+# and the percona-server role use), the key is added to it
+percona_toolkit_repository_url: http://repo.percona.com
+percona_toolkit_repository_names:
+  - tools
+percona_toolkit_repository_keyring: /usr/share/keyrings/percona-keyring.gpg
+percona_toolkit_repository_key_id: 9334A25F8507EFA5
+
 percona_toolkit_cron_jobs: []
 
 percona_toolkit_deadlock_logger: {}
